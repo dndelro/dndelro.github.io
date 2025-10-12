@@ -1,18 +1,23 @@
 header {
-  position: sticky; /* stick to top when scrolling */
-  top: 0; /* stick position */
-  z-index: 10; /* stay above cards/content */
-  background: #afb5aa; /* header background color */
-  color: #000; /* header text color */
+  position: sticky;
+  /* stick to top when scrolling */
+  top: 0;
+  /* stick position */
+  z-index: 10;
+  /* stay above cards/content */
+  background: #afb5aa;
+  /* header background color */
+  color: #000;
+  /* header text color */
 }
 
-header > .wrapper {
+header>.wrapper {
   display: grid;
-  grid-template-columns: 1fr auto 1fr; 
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  padding: 10px 16px;              
-  max-width: 100%;                
-  margin: 0;                        
+  padding: 10px 16px;
+  max-width: 100%;
+  margin: 0;
 }
 
 header .logo-container {
@@ -27,21 +32,26 @@ header img.logo {
   height: 50px;
   margin-right: 10px;
 }
+
 header h1 {
   margin: 0;
 }
+
 header h1 .site-title {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
 }
+
 header h1 .site-title:hover {
   text-decoration: underline;
 }
+
 header h1 .site-title:focus-visible {
   outline: 2px solid #000;
   outline-offset: 2px;
 }
+
 header nav {
   display: flex;
   justify-content: center;
@@ -49,12 +59,14 @@ header nav {
   padding: 10px;
   border-radius: 5px;
 }
+
 header nav a {
   color: black;
   text-decoration: none;
   font-weight: bold;
   margin-right: 20px;
 }
+
 header nav a:hover {
   color: rgba(25, 24, 23, 0.44);
   text-decoration: underline;
@@ -71,11 +83,13 @@ body {
   min-height: 100vh;
   background: linear-gradient(to top, rgb(255, 251, 249), rgb(244, 243, 240));
   background-attachment: fixed;
-} /* WRAPPER = centered container (no white box) */
+}
+
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
 }
+
 .wrapper h3 {
   text-align: center;
   font-weight: normal;
@@ -84,6 +98,7 @@ body {
   border-top: 1px solid #0000006d;
   background: linear-gradient(to bottom, #e0e0e0, #d2d1d1);
 }
+
 .wrapper h2 {
   font-weight: normal;
   background: linear-gradient(to right, #e0e0e0eb, #d2d1d1e5);
@@ -95,38 +110,92 @@ body {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 24px;
-  overflow: hidden; /* respect rounded corners */
-  margin: 24px 0; /* space between cards */
+  overflow: hidden;
+  /* respect rounded corners */
+  margin: 24px 0;
+  /* space between cards */
 }
+
 footer {
   border-top: 1px solid #0000006d;
   text-align: center;
 }
+
 ol li,
 ul li,
 dl dt,
 dl dd {
   margin-bottom: 10px;
 }
+
 ul {
   list-style-type: square;
 }
+
 dl dt {
   font-weight: bold;
   color: #333;
 }
+
 .wrapper ul li a {
   color: black;
 }
+
 .wrapper ul li a:hover {
   color: rgba(25, 24, 23, 0.44);
 }
+
 .wrapper ul li a {
   font-weight: bold;
   color: black;
   text-decoration: none;
 }
+
 .wrapper ul li a:hover {
   color: rgba(25, 24, 23, 0.44);
   text-decoration: underline;
+}
+
+.hero {
+  background: #395C6B;
+  color: #fff;
+}
+
+.hero .wrapper {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.hero-title {
+  margin: 0;
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 700;
+}
+
+.hero h2 {
+  background: transparent;
+  padding: 0;
+}
+
+
+#about {
+  scroll-margin-top: 72px;
+}
+
+.badge{
+  display:inline-block;
+  background:#C46D5E;
+  color:#000000;
+  border-radius:8px;       
+  padding:.2em .2em;     
+  line-height:1;
+  font-size:1em;           
+  font-weight:inherit;
+  text-decoration:none;
+  white-space:nowrap;
+  vertical-align:baseline;
+}
+.badge:focus-visible{
+  outline:2px solid #000;
+  outline-offset:2px;
 }
