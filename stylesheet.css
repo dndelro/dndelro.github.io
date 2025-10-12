@@ -41,6 +41,12 @@ header h1 .site-title {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
+    display: inline-block;
+  padding: .2em .5em;                 /* same as nav links */
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color .18s ease, color .18s ease, box-shadow .18s ease;
+
 }
 
 header h1 .site-title:hover {
@@ -65,12 +71,29 @@ header nav a {
   text-decoration: none;
   font-weight: bold;
   margin-right: 20px;
+  display: inline-block;
+  padding: .2em .5em;         
+  border-radius: 8px;          
+  text-decoration: none;        
+  transition: background-color .18s ease, color .18s ease, box-shadow .18s ease;
+
 }
 
-header nav a:hover {
-  color: rgba(25, 24, 23, 0.44);
-  text-decoration: underline;
+header nav a:hover,
+header nav a:focus-visible{
+  background: #C46D5E;         
+  color: #000000;                 
+  text-decoration: none;      
+  box-shadow: 0 0 0 1px rgba(0,0,0,.15) inset;
+  outline: none;             
 }
+
+header nav a:focus-visible{
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,.15) inset,
+    0 0 0 2px #000;          
+}
+
 
 .nav {
   display: flex;
@@ -141,19 +164,10 @@ dl dt {
   color: black;
 }
 
-.wrapper ul li a:hover {
-  color: rgba(25, 24, 23, 0.44);
-}
-
 .wrapper ul li a {
   font-weight: bold;
   color: black;
   text-decoration: none;
-}
-
-.wrapper ul li a:hover {
-  color: rgba(25, 24, 23, 0.44);
-  text-decoration: underline;
 }
 
 .hero {
@@ -177,7 +191,6 @@ dl dt {
   padding: 0;
 }
 
-
 #about {
   scroll-margin-top: 72px;
 }
@@ -199,3 +212,7 @@ dl dt {
   outline:2px solid #000;
   outline-offset:2px;
 }
+
+
+
+
