@@ -8,19 +8,21 @@ header {
 
 header > .wrapper {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr auto 1fr; 
   align-items: center;
-  padding: 10px 0 10px 10px;
+  padding: 10px 16px;              
+  max-width: 100%;                
+  margin: 0;                        
 }
 
 header .logo-container {
   grid-column: 1;
   justify-self: start;
   display: flex;
-  align-items: left;
+  align-items: center;
   gap: 10px;
-  margin-left: -350px;
 }
+
 header img.logo {
   height: 50px;
   margin-right: 10px;
@@ -87,10 +89,7 @@ body {
   background: linear-gradient(to right, #e0e0e0eb, #d2d1d1e5);
   padding: 10px;
 }
-header .logo-container {
-  display: flex;
-  align-items: center;
-}
+
 .card {
   background: #fff;
   border-radius: var(--radius);
