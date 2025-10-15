@@ -1,140 +1,225 @@
 header {
-    background-color: #afb5aa; 
-    color: rgb(0, 0, 0); 
-    width: 100%;
-    padding: 10px 0 10px 10px;
-    margin: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    z-index: 10
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #afb5aa;
+  color: #000;
+  
 }
 
-header .logo-container { justify-self: start; }
-
-header img.logo {
-    height: 50px; 
-    margin-right: 10px;
-}
-
-header h1 {
-    margin: 0;
-}
-
-header h1 .site-title {
-color: inherit;
-text-decoration: none;
-cursor: pointer;
-}
-header h1 .site-title:hover { text-decoration: underline; }
-header h1 .site-title:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
-
-header nav {
-    display: flex;
-    justify-content: center;
-    flex-grow: 1;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-header nav a {
-    color: black;
-    text-decoration: none;
-    font-weight: bold; 
-    margin-right: 20px; 
-}
-
-header nav a:hover {
-    color: rgba(25, 24, 23, 0.44);
-    text-decoration: underline;
-}
-
-header .nav-container {
-justify-self: center; /* true center */
-display: flex;
-justify-content: center;
-margin-left: 0; /* remove the hack */
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to top, rgb(255, 251, 249), rgb(244, 243, 240)); 
-    height: 100%;
-    margin: 0;
-    padding: 80px 0px 20px 0px;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-.wrapper {
-    max-width: 1200px;
-    margin: 0 auto; 
-    background: white; 
-    border-radius: 20px; overflow:hidden;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1); 
-    padding: 20px; 
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.wrapper h3 {
-    text-align: center;
-    font-weight: normal;
-    font-size: 22px;
-    border-bottom: 1px solid #0000006d; 
-    border-top: 1px solid #0000006d; 
-    background: linear-gradient(to bottom, #e0e0e0, #d2d1d1);
-}
-
-.wrapper h2 {
-    font-weight: normal;
-    background: linear-gradient(to right, #e0e0e0eb, #d2d1d1e5);
-    padding: 10px;
+header > .wrapper {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 10px 16px;
+  max-width: 100%;
+  margin: 0;
 }
 
 header .logo-container {
-    display: flex;
-    align-items: center;
+  grid-column: 1;
+  justify-self: start;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header img.logo {
+  height: 50px;
+  margin-right: 10px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header h1 .site-title {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.2em 0.5em; /* same as nav links */
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.18s ease, color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+header h1 .site-title:hover {
+  text-decoration: underline;
+}
+
+header h1 .site-title:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+header nav a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 20px;
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.18s ease, color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+header nav a:hover,
+header nav a:focus-visible {
+  background: #c46d5e;
+  color: #000000;
+  text-decoration: none;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset;
+  outline: none;
+}
+
+header nav a:focus-visible {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset, 0 0 0 2px #000;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(to top, rgb(255, 251, 249), rgb(244, 243, 240));
+  background-attachment: fixed;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.wrapper h3 {
+  text-align: center;
+  font-weight: normal;
+  font-size: 22px;
+  border-bottom: 1px solid #0000006d;
+  border-top: 1px solid #0000006d;
+  background: linear-gradient(to bottom, #e0e0e0, #d2d1d1);
+}
+
+.wrapper h2 {
+  font-weight: normal;
+  background: linear-gradient(to right, #e0e0e0eb, #d2d1d1e5);
+  padding: 10px;
+}
+
+.card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  overflow: hidden;
+  margin: 24px 0;
 }
 
 footer {
-    border-top: 1px solid #0000006d; 
-    padding-top: 10px; 
-    text-align: center;
+  border-top: 1px solid #0000006d;
+  text-align: center;
 }
 
-ol li, ul li, dl dt, dl dd {
-    margin-bottom: 10px; 
+ol li,
+ul li,
+dl dt,
+dl dd {
+  margin-bottom: 10px;
 }
 
 ul {
-    list-style-type: square;
+  list-style-type: square;
 }
 
 dl dt {
-    font-weight: bold; 
-    color: #333; 
+  font-weight: bold;
+  color: #333;
 }
 
 .wrapper ul li a {
-    color: black;
+  color: black;
 }
-
-.wrapper ul li a:hover {
-    color: rgba(25, 24, 23, 0.44);
-}
-
 
 .wrapper ul li a {
-    font-weight: bold;
-    color: black;
-    text-decoration: none;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
 }
 
-.wrapper ul li a:hover {
-    color: rgba(25, 24, 23, 0.44);
-    text-decoration: underline;
+.hero {
+  background: #395c6b;
+  color: #fff;
+  
 }
+
+.hero .wrapper {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.hero-title {
+  margin: 0;
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 700;
+}
+
+.hero h2 {
+  background: transparent;
+  padding: 0;
+}
+
+#about {
+  scroll-margin-top: 72px;
+}
+
+.badge {
+  display: inline-block;
+  background: #c46d5e;
+  color: #000000;
+  border-radius: 8px;
+  padding: 0.2em 0.2em;
+  line-height: 1;
+  font-size: 1em;
+  font-weight: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+.badge:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+.about-card {
+  margin-top: 32px;
+  background: #fffbf9;
+  /*border-radius: 6px;  Slightly rounded edges */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: #000000;
+  font-size: 20px;
+  text-align: center;
+}
+
+.about-card h3 {
+  padding: 12px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: normal;
+  border-top: none;
+  margin: -24px -24px 20px -24px;
