@@ -220,6 +220,27 @@ dl dt {
   margin: -24px -24px 20px -24px;
 }
 
+/* Portfolio Card */
+.portfolio-card {
+  margin-top: 32px;
+  background: #fffbf9;
+  /*border-radius: 6px;  Slightly rounded edges */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: #000000;
+  font-size: 20px;
+  text-align: center;
+}
+
+.portfolio-card h3 {
+  padding: 12px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: normal;
+  border-top: none;
+  margin: -24px -24px 20px -24px;
+}
+
 footer {
   border-top: 1px solid #0000006d;
   text-align: center;
@@ -228,21 +249,21 @@ footer {
 }
 
 .social-links {
-  margin-top: 8px;               /* keeps icons under “Contact Me” */
+  margin-top: 8px;              
   display: flex;
   justify-content: center;
   gap: 20px;
 }
 
 .social-links a {
-  font-size: 28px;               /* icon size */
-  color: inherit;                 /* follows footer text color */
+  font-size: 28px;             
+  color: inherit;               
   line-height: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;             /* improves focus ring shape */
-  padding: 6px;                   /* bigger hit area */
+  border-radius: 8px;            
+  padding: 6px;                  
   text-decoration: none;
   transition: color 0.18s ease, box-shadow 0.18s ease;
 }
