@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>dndelro</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="icon" href="Gato.png">
+  </head>
+  <body>
+    <header>
+      <div class="wrapper">
+        <div class="logo-container">
+          <img src="Gato.png" alt="Gato" class="logo" />
+          <h1><a href="#top" class="site-title">dndelro</a></h1>
+        </div>
+        <div class="nav-container">
+          <nav class="nav">
+            <a href="#about">About</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#resume">Resume</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!--About Me Section-->
+      <section id="about" class="hero" aria-label="About Me">
+        <div class="wrapper">
+          <h2 class="hero-title">
+            Hey! I'm <span class="badge">Nelson</span> a full stack cloud developer.
+          </h2>
+        </div>
+        <div class="card about-card">
+          <h3><span class="badge">About Me</span></h3>
+          <p>
+            I'm a full stack developer who graduated with a B.S. in I.T. with a
+            concentration in Software Development
+          </p>
+          <p>
+            I'm currently studying for the Microsoft Azure Developer Associate certification
+          </p>
+        </div>
+      </section>
+      <!--End of About Me Section-->
+
+      <!--Portfolio Section-->
+      <section id="portfolio" aria-label="Portfolio">
+        <div class="card portfolio-card">
+          <h3 class="heading-inline__h3">My <span class="badge">Portfolio</span></h3>
+          <div class="project-grid">
+            <a href="#" class="project-tile" aria-label="Project 1">
+              <div class="project-tile__img"></div>
+              <span class="project-tile__label">Store Display Asset Tracking</span>
+            </a>
+            <a href="#" class="project-tile" aria-label="Project 2">
+              <div class="project-tile__img"></div>
+              <span class="project-tile__label">SMS Platform</span>
+            </a>
+            <a href="#" class="project-tile" aria-label="Project 3">
+              <div class="project-tile__img"></div>
+              <span class="project-tile__label">Internal Company Dashboards</span>
+            </a>
+            <a href="#" class="project-tile" aria-label="Project 4">
+              <div class="project-tile__img"></div>
+              <span class="project-tile__label">Memory Lane</span>
+            </a>
+            <a href="#" class="project-tile" aria-label="Project 5">
+              <div class="project-tile__img"></div>
+              <span class="project-tile__label">QuicKart</span>
+            </a>
+            <a href="#" class="project-tile" aria-label="Project 6">
+              <div class="project-tile__img"></div>
+              <span class="project-tile__label">Fruit Rain</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <!--End of Portfolio Section-->
+
+      <!--Resume Section-->
+      <section id="resume" aria-label="Resume">
+        <div class="card resume-card">
+          <h3>My <span class="badge">Resume</span></h3>
+          <div class="resume-viewer">
+            <iframe src="resume.pdf" title="Resume PDF viewer" allowfullscreen></iframe>
+          </div>
+          <div class="resume-actions">
+            <a href="resume.pdf" download class="resume-download">
+              <i class="fa-solid fa-download" aria-hidden="true"></i> Download PDF
+            </a>
+          </div>
+        </div>
+      </section>
+      <!--End of Resume Section-->
+    </main>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Project details" hidden>
+      <div class="modal">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <div class="modal-body">
+
+          <!-- Left: Gallery -->
+          <div class="modal-gallery">
+            <div class="gallery-viewport">
+              <img class="gallery-img" src="" alt="Project screenshot" />
+            </div>
+            <div class="gallery-controls">
+              <button class="gallery-arrow" id="gallery-prev" aria-label="Previous image">&#9664;</button>
+              <div class="gallery-pagination" id="gallery-pagination"></div>
+              <button class="gallery-arrow" id="gallery-next" aria-label="Next image">&#9654;</button>
+            </div>
+          </div>
+
+          <!-- Right: Info -->
+          <div class="modal-info">
+            <h2 class="modal-title" id="modal-title"></h2>
+            <p class="modal-desc" id="modal-desc"></p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- End Project Modal -->
+
+    <footer id="contact">
+      <p><span class="greenbadge">Contact Me</span></p>
+      <div class="social-links" role="navigation" aria-label="Contact Me links">
+        <a href="https://github.com/dndelro" aria-label="GitHub" target="_blank" rel="noopener">
+          <i class="fa-brands fa-square-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/diodelro/" aria-label="LinkedIn" target="_blank" rel="noopener">
+          <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+        </a>
+        <a href="mailto:dndelro@gmail.com" aria-label="Email" target="_blank" rel="noopener">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+        </a>
+      </div>
+    </footer>
+
+    <script>
+      // ── Project Data ──────────────────────────────────────────────────────────
+      const projects = [
+        {
+          title: "Store Display Asset Tracking",
+          description: "A description of this project. What it does, what stack you used, and what problem it solves.",
+          images: [
+            "https://placehold.co/800x500/afb5aa/000?text=Asset+Tracking+1",
+            "https://placehold.co/800x500/395c6b/fff?text=Asset+Tracking+2"
+          ]
+        },
+        {
+          title: "SMS Platform",
+          description: "A description of this project. What it does, what stack you used, and what problem it solves.",
+          images: ["https://placehold.co/800x500/afb5aa/000?text=SMS+Platform"]
+        },
+        {
+          title: "Internal Company Dashboards",
+          description: "A description of this project. What it does, what stack you used, and what problem it solves.",
+          images: ["https://placehold.co/800x500/afb5aa/000?text=Dashboards"]
+        },
+        {
+          title: "Memory Lane",
+          description: "A description of this project. What it does, what stack you used, and what problem it solves.",
+          images: ["https://placehold.co/800x500/afb5aa/000?text=Memory+Lane"]
+        },
+        {
+          title: "QuicKart",
+          description: "A description of this project. What it does, what stack you used, and what problem it solves.",
+          images: ["https://placehold.co/800x500/afb5aa/000?text=QuicKart"]
+        },
+        {
+          title: "Fruit Rain",
+          description: "A description of this project. What it does, what stack you used, and what problem it solves.",
+          images: ["https://placehold.co/800x500/afb5aa/000?text=Fruit+Rain"]
+        }
+      ];
+
+      // ── Modal Logic ───────────────────────────────────────────────────────────
+      const modal      = document.getElementById("project-modal");
+      const modalTitle = document.getElementById("modal-title");
+      const modalDesc  = document.getElementById("modal-desc");
+      const galleryImg = document.querySelector(".gallery-img");
+      const pagination = document.getElementById("gallery-pagination");
+      const prevBtn    = document.getElementById("gallery-prev");
+      const nextBtn    = document.getElementById("gallery-next");
+      const closeBtn   = document.querySelector(".modal-close");
+
+      let currentImages = [];
+      let currentIndex  = 0;
+
+      function buildPagination(total, active) {
+        pagination.innerHTML = "";
+        for (let i = 0; i < total; i++) {
+          const dot = document.createElement("button");
+          dot.className = "gallery-dot" + (i === active ? " active" : "");
+          dot.setAttribute("aria-label", "Go to image " + (i + 1));
+          dot.addEventListener("click", () => goTo(i));
+          pagination.appendChild(dot);
+        }
+      }
+
+      function goTo(index) {
+        currentIndex = (index + currentImages.length) % currentImages.length;
+        galleryImg.src = currentImages[currentIndex];
+        buildPagination(currentImages.length, currentIndex);
+        const single = currentImages.length === 1;
+        prevBtn.style.visibility = single ? "hidden" : "visible";
+        nextBtn.style.visibility = single ? "hidden" : "visible";
+      }
+
+      function openModal(i) {
+        const p = projects[i];
+        modalTitle.textContent = p.title;
+        modalDesc.textContent  = p.description;
+        currentImages          = p.images;
+        goTo(0);
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+        closeBtn.focus();
+      }
+
+      function closeModal() {
+        modal.hidden = true;
+        document.body.style.overflow = "";
+      }
+
+      document.querySelectorAll(".project-tile").forEach((tile, i) => {
+        tile.addEventListener("click", (e) => {
+          e.preventDefault();
+          openModal(i);
+        });
+      });
+
+      prevBtn.addEventListener("click", () => goTo(currentIndex - 1));
+      nextBtn.addEventListener("click", () => goTo(currentIndex + 1));
+      closeBtn.addEventListener("click", closeModal);
+
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !modal.hidden) closeModal();
+      });
+
+      // ── Logo shake on hover ───────────────────────────────────────────────────
+      const logo = document.querySelector("header img.logo");
+
+      logo.addEventListener("mouseenter", () => {
+        if (logo.classList.contains("shaking")) return;
+        logo.classList.add("shaking");
+        setTimeout(() => {
+          logo.classList.remove("shaking");
+        }, 2000);
+      });
+    </script>
+  </body>
+</html>

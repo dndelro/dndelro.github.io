@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 header {
   position: sticky;
   top: 0;
@@ -27,6 +31,31 @@ header .logo-container {
 header img.logo {
   height: 50px;
   margin-right: 10px;
+  transform: scale(1);
+  transition: transform 0.2s ease;
+}
+
+header img.logo.scale-up {
+  transform: scale(1.08);
+  transition: transform 0.2s ease;
+}
+
+header img.logo.shaking {
+  animation: logo-shake 0.6s ease 4;
+}
+
+header img.logo.scale-down {
+  transform: scale(1);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes logo-shake {
+  0%   { transform: scale(1.08) rotate(0deg); }
+  20%  { transform: scale(1.08) rotate(-4deg); }
+  40%  { transform: scale(1.08) rotate(4deg); }
+  60%  { transform: scale(1.08) rotate(-3deg); }
+  80%  { transform: scale(1.08) rotate(3deg); }
+  100% { transform: scale(1.08) rotate(0deg); }
 }
 
 header h1 {
@@ -38,7 +67,7 @@ header h1 .site-title {
   text-decoration: none;
   cursor: pointer;
   display: inline-block;
-  padding: 0.2em 0.5em; /* same as nav links */
+  padding: 0.2em 0.5em;
   border-radius: 8px;
   text-decoration: none;
   transition: background-color 0.18s ease, color 0.18s ease,
@@ -72,7 +101,7 @@ header nav a {
   border-radius: 8px;
   text-decoration: none;
   transition: background-color 0.18s ease, color 0.18s ease,
-    box-shadow 0.18s ease;
+  box-shadow 0.18s ease;
 }
 
 header nav a:hover,
@@ -80,7 +109,6 @@ header nav a:focus-visible {
   background: #c46d5e;
   color: #000000;
   text-decoration: none;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15) inset;
   outline: none;
 }
 
@@ -159,7 +187,6 @@ dl dt {
 .hero {
   background: #395c6b;
   color: #fff;
-  
 }
 
 .hero .wrapper {
@@ -182,6 +209,10 @@ dl dt {
   scroll-margin-top: 72px;
 }
 
+#portfolio, #resume {
+  scroll-margin-top: 65px;
+}
+
 .badge {
   display: inline-block;
   background: #c46d5e;
@@ -195,6 +226,21 @@ dl dt {
   white-space: nowrap;
   vertical-align: baseline;
 }
+
+.greenbadge {
+  display: inline-block;
+  background: #afb5aa;
+  color: #000000;
+  border-radius: 8px;
+  padding: 0.2em 0.2em;
+  line-height: 1;
+  font-size: 1em;
+  font-weight: normal;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
 .badge:focus-visible {
   outline: 2px solid #000;
   outline-offset: 2px;
@@ -203,7 +249,6 @@ dl dt {
 .about-card {
   margin-top: 32px;
   background: #fffbf9;
-  /*border-radius: 6px;  Slightly rounded edges */
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
   color: #000000;
@@ -224,7 +269,6 @@ dl dt {
 .portfolio-card {
   margin-top: 32px;
   background: #fffbf9;
-  /*border-radius: 6px;  Slightly rounded edges */
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
   color: #000000;
@@ -241,11 +285,170 @@ dl dt {
   margin: -24px -24px 20px -24px;
 }
 
+/* ── Project Grid (Clean & Square) ── */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px; 
+  padding: 16px 0;
+}
+
+/* The wrapper remains the clickable area but has no background/border */
+.project-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.18s ease;
+}
+
+.project-tile:hover {
+  transform: translateY(-4px);
+}
+
+.project-tile:focus-visible {
+  outline: 2px solid #c46d5e;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.project-tile__img {
+  width: 75%;
+  aspect-ratio: 1 / 1;
+  /* The gradient stays as a fallback while your image loads! */
+  background-color: #d6d9d3;
+  background-image: linear-gradient(135deg, #d6d9d3 0%, #c2c6be 100%);
+  
+  /* --- NEW PROPERTIES ADDED HERE --- */
+  background-size: cover;
+  background-position: center;
+  /* --------------------------------- */
+
+  flex-shrink: 0;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  transition: box-shadow 0.18s ease;
+}
+
+/* Responsive: 2 columns on tablet, 1 on mobile */
+@media (max-width: 720px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Bring the image back to full width on tablets/phones */
+  .project-tile__img {
+    width: 100%; 
+  }
+}
+
+@media (max-width: 480px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-tile:hover .project-tile__img {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* The label is now just clean text sitting below the square */
+.project-tile__label {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 0 0 0;
+  color: #222;
+  box-sizing: border-box;
+}
+
+/* Responsive: 2 columns on tablet, 1 on mobile */
+@media (max-width: 720px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.resume-card {
+  margin-top: 32px;
+  background: #fffbf9;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: #000000;
+  font-size: 20px;
+  text-align: center;
+}
+
+.resume-card h3 {
+  padding: 12px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: normal;
+  border-top: none;
+  margin: -24px -24px 20px -24px;
+}
+
+.resume-actions {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.resume-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #000;
+  color: #fff;
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  transition: background 0.18s ease;
+}
+
+.resume-download:hover {
+  background: #c46d5e;
+  color: #fff;
+}
+
+.resume-viewer {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.resume-viewer iframe {
+  width: 100%;
+  height: 800px;
+  border: none;
+  display: block;
+}
+
 footer {
   border-top: 1px solid #0000006d;
   text-align: center;
-  font-weight: bold;
+  font-size: 24px;
   padding-bottom: 24px;
+  background: #395c6b;
+  color: #fff;
+}
+
+.footer-me {
+  color: #fff;
+  font-weight: normal;
 }
 
 .social-links {
@@ -277,3 +480,229 @@ footer {
   outline-offset: 2px;
   box-shadow: 0 0 0 2px #00000033;
 }
+
+/* ── Project Modal ─────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.modal {
+  background: #fffbf9;
+  border-radius: 12px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 1100px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 36px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #555;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.modal-close:hover {
+  background: #f0ece9;
+  color: #000;
+}
+
+.modal-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+  margin-top: 8px;
+}
+
+/* Gallery */
+.modal-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gallery-viewport {
+  width: 100%;
+  height: 320px;        /* fixed height — modal won't shift */
+  max-height: none;     /* remove the old max-height */
+  background: #e8eae6;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;  /* keeps aspect ratio, no cropping */
+  display: block;
+}
+
+.gallery-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.gallery-arrow {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 6px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.gallery-arrow:hover {
+  background: #f0ece9;
+  border-color: rgba(0,0,0,0.25);
+}
+
+.gallery-pagination {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #afb5aa;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.gallery-dot.active {
+  background: #c46d5e;
+  border-color: #c46d5e;
+}
+
+.gallery-dot:hover:not(.active) {
+  background: #afb5aa;
+}
+
+/* Info panel */
+.modal-info {
+  padding-top: 4px;
+}
+
+.modal-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 14px 0;
+  color: #1a1a1a;
+}
+
+.modal-desc {
+  font-size: 16px;
+  line-height: 1.65;
+  color: #444;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .modal-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+.modal-subtitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: -6px 0 14px 0;
+  font-size: 14px;
+}
+
+.modal-subtitle a {
+  color: #afb5aa;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.18s ease;
+}
+
+.modal-subtitle a:hover {
+  color: #c46d5e;
+}
+
+/* Mobile Nav Bar Fix */
+
+@media (max-width: 600px) {
+  header h1 {
+    display: none;
+  }
+
+  header > .wrapper {
+    grid-template-columns: auto 1fr;
+    justify-items: start;
+  }
+
+  header .logo-container {
+    grid-column: 1;
+  }
+
+  header img.logo {
+    display: block;
+  }
+
+  .nav-container {
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+  }
+
+  header nav {
+    padding: 4px;
+    gap: 2px;
+    margin-left: -30px;
+  }
+
+  header nav a {
+    margin-right: 4px;
+    font-size: 13px;
+    padding: 0.2em 0.3em;
+  }
+}
+

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,14 +8,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <link rel="icon" href="Gato.png">
+    <link rel="icon" href="img/Gato.png" />
   </head>
-
   <body>
     <header>
       <div class="wrapper">
         <div class="logo-container">
-          <img src="Gato.png" alt="Gato" class="logo" />
+          <img src="img/Gato.png" alt="Gato" class="logo" />
           <h1><a href="#top" class="site-title">dndelro</a></h1>
         </div>
         <div class="nav-container">
@@ -34,50 +33,393 @@
       <section id="about" class="hero" aria-label="About Me">
         <div class="wrapper">
           <h2 class="hero-title">
-            Hey! I’m <span class="badge">Nelson</span> a full stack cloud
+            Hey! I'm <span class="badge">Nelson</span> and I'm a full stack
             developer.
           </h2>
         </div>
         <div class="card about-card">
-          <h3><span class="badge">About Me</span></h3>
+          <h3><span class="badge">About</span> Me</h3>
           <p>
-            I'm a full stack developer who graduated with a B.S. in I.T. with a
+            I'm a full stack developer with a Bachelor of Science in I.T. with a
             concentration in Software Development
           </p>
+          <p></p>
           <p>
-            I'm currently studying for the Microsoft Azure Developer Associate
-            certification
+            I'm currently studying for the AZ-204 Microsoft Azure Developer
+            Associate certification
           </p>
         </div>
       </section>
       <!--End of About Me Section-->
 
       <!--Portfolio Section-->
-      <section id="Portfolio" aria-label="Portfolio">
+      <section id="portfolio" aria-label="Portfolio">
         <div class="card portfolio-card">
-            <h3 class="heading-inline__h3">My <span class="badge">Portfolio</span></h3>
+          <h3 class="heading-inline__h3">
+            My <span class="badge">Portfolio</span>
+          </h3>
+          <div class="project-grid">
+            <a href="#" class="project-tile" aria-label="Project 1">
+              <div
+                class="project-tile__img"
+                style="background-image: url(&quot;img/AssetTracking.png&quot;)"
+              ></div>
+              <span class="project-tile__label"
+                >Internal Store Display Asset Tracking</span
+              >
+            </a>
+            <a href="#" class="project-tile" aria-label="Project 2">
+              <div
+                class="project-tile__img"
+                style="background-image: url(&quot;img/SMSPlatform.png&quot;)"
+              ></div>
+              <span class="project-tile__label">Twilio SMS Platform</span>
+            </a>
+            <a href="#" class="project-tile" aria-label="Project 3">
+              <div
+                class="project-tile__img"
+                style="
+                  background-image: url(&quot;img/InternalDashboards.png&quot;);
+                "
+              ></div>
+              <span class="project-tile__label"
+                >Internal Orders & Sales Dashboards</span
+              >
+            </a>
+            <a href="#" class="project-tile" aria-label="Project 4">
+              <div
+                class="project-tile__img"
+                style="
+                  background-image: url(&quot;img/memorylanelogo.png&quot;);
+                "
+              ></div>
+              <span class="project-tile__label">Memory Lane</span>
+            </a>
+            <a href="#" class="project-tile" aria-label="Project 5">
+              <div
+                class="project-tile__img"
+                style="background-image: url(&quot;img/quickartlogo.png&quot;)"
+              ></div>
+              <span class="project-tile__label">QuicKart</span>
+            </a>
+            <a href="#" class="project-tile" aria-label="Project 6">
+              <div
+                class="project-tile__img"
+                style="background-image: url(&quot;img/fruitrainmenu.png&quot;)"
+              ></div>
+              <span class="project-tile__label">Fruit Rain</span>
+            </a>
+          </div>
         </div>
       </section>
-      <!--End of my portfolio section-->
+      <!--End of Portfolio Section-->
+
+      <!--Resume Section-->
+      <section id="resume" aria-label="Resume">
+        <div class="card resume-card">
+          <h3>My <span class="badge">Resume</span></h3>
+          <div class="resume-viewer">
+            <iframe
+              src="NelsonDelRosario2026Resume.pdf"
+              title="Resume PDF viewer"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="resume-actions">
+            <a href="NelsonDelRosario2026Resume.pdf" download class="resume-download">
+              <i class="fa-solid fa-download" aria-hidden="true"></i> Download
+              PDF
+            </a>
+          </div>
+        </div>
+      </section>
+      <!--End of Resume Section-->
     </main>
 
-    <footer>
-      <p>Contact Me</p>
+    <!-- Project Modal -->
+    <div
+      id="project-modal"
+      class="modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Project details"
+      hidden
+    >
+      <div class="modal">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <div class="modal-body">
+          <!-- Left: Gallery -->
+          <div class="modal-gallery">
+            <div class="gallery-viewport">
+              <img class="gallery-img" src="" alt="Project screenshot" />
+            </div>
+            <div class="gallery-controls">
+              <button
+                class="gallery-arrow"
+                id="gallery-prev"
+                aria-label="Previous image"
+              >
+                &#9664;
+              </button>
+              <div class="gallery-pagination" id="gallery-pagination"></div>
+              <button
+                class="gallery-arrow"
+                id="gallery-next"
+                aria-label="Next image"
+              >
+                &#9654;
+              </button>
+            </div>
+          </div>
 
-      <div class="social-links" role="navigation" aria-label="Contact Me links" >
-        <a href="https://github.com/dndelro" aria-label="GitHub" target="_blank" rel="noopener">
-          <i class="fa-brands fa-square-github" aria-hidden="true"></i>
-        </a>
+          <!-- Right: Info -->
+          <div class="modal-info">
+            <h2 class="modal-title" id="modal-title"></h2>
+            <p class="modal-subtitle" id="modal-subtitle"></p>
+            <p class="modal-desc" id="modal-desc"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Project Modal -->
 
-        <a href="https://www.linkedin.com/in/diodelro/" aria-label="LinkedIn" target="_blank" rel="noopener">
+    <footer id="contact">
+      <p>
+        <span class="badge">Contact</span> <span class="footer-me">Me</span>
+      </p>
+      <div class="social-links" role="navigation" aria-label="Contact Me links">
+        <a
+          href="https://www.linkedin.com/in/diodelro/"
+          aria-label="LinkedIn"
+          target="_blank"
+          rel="noopener"
+        >
           <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
         </a>
-
-        <a href="mailto:dndelro@gmail.com" aria-label="Email" target="_blank" rel="noopener">
+        <a
+          href="mailto:dndelro@gmail.com""
+          aria-label="Email"
+          target="_blank"
+          rel="noopener"
+        >
           <i class="fa-solid fa-envelope" aria-hidden="true"></i>
         </a>
+        <a
+          href="https://github.com/dndelro"
+          aria-label="GitHub"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fa-brands fa-square-github" aria-hidden="true"></i>
+        </a>
       </div>
-
     </footer>
+
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+    <script>
+      // ── Project Data ──────────────────────────────────────────────────────────
+      const projects = [
+        {
+          title: "Internal Store Display Asset Tracking",
+          description:"Stack used: HTML, CSS, JavaScript, PHP, Bootstrap, SQL",
+          bullets: [
+            "Developed internal asset tracking web app using PHP and JavaScript to track company store displays across customer stores and warehouses via scannable asset tage, with asset information and current location being stored on a SQL database. And allowing users with management access have the ability to request for more assets using Microsoft Great Plains and Wizard WMS",
+            "Applied mapping and customer store and warehouse search tools to show location of specific display assets. The project's goal is to keep track of company display assets, and ensuring compatibility with Android and iOs versions of the application",
+          ],
+          images: ["img/AssetTracking.png"],
+        },
+        {
+          title: "Twilio SMS Platform",
+          description:"Stack used: HTML, CSS, JavaScript, Bootstrap, PHP, SQL, Twilio API",
+          bullets: [
+            "Developed an internal web application that allows users to send and track bulk SMS messages to employees and clients using the Twilio API.",
+            "Created a PHP backend connected to a Microsoft SQL Server database to manage contact information, organize user groups, log message history, and process incoming text replies.",
+            "Used JavaScript and Bootstrap to create the user interface, implementing features like drag-and-drop recipient selection, table filtering, and Excel file imports."
+          ],  
+          images: ["img/SMSPlatform.png"],
+        },
+        {
+          title: "Internal Orders & Sales Dashboards",
+          description:"Stack used: HTML, CSS, JavaScript, jQuery, Bootstrap, PHP, SQL, Chart.js",
+          bullets: [
+            "Developed an internal order management and warehouse dashboard that allows staff to track daily sales, manage emergency order approvals, and view hourly shipping schedules.",
+            "Wrote PHP backend APIs to retrieve order histories, calculate daily shipping subtotals, and process status updates for pending warehouse orders.",
+            "Implemented front-end interfaces using jQuery and Chart.js to display paginated data tables, visual data breakdowns, and custom search filters."
+          ],
+          images: ["img/InternalDashboards.png"],
+        },
+        {
+          title: "Memory Lane",
+          github: "https://github.com/Team-Forget-Me-Not/Memory-Lane",
+          description:
+            "Stack used: HTML, CSS, JavaScript, React.js, Node.js, FireBase, Firestore",
+          bullets: [
+            "Developed Memory Lane, a React-based journaling web application that allows users to create and save digital diary entries containing text descriptions, uploaded images, and embedded YouTube videos.",
+            "Built a cloud-integrated system using Firebase to manage secure user registration and store persistent data such as personal bios, task lists, and custom interface preferences like background colors.",
+            "Integrated a calendar and task planner that sync with the database to organize entries by date and priority, ensuring the user's schedule and memories stay updated in one place."
+          ],
+          images: ["img/memorylanelogo.png", "img/memorylane/ml1.png", "img/memorylane/ml2.png", "img/memorylane/ml3.png", "img/memorylane/ml4.png"],
+        },
+        {
+          title: "QuicKart",
+          github: "https://github.com/ctbernard/QuicKart-RapidCode-Innovators",
+          description: "Stack used: JavaScript, Java, Jest, React Native, Expo, MongoDB, Redux, GraphQL",
+          bullets: [
+            "Continued development of an Android shopping app that maps out a grocery store and creates a walking path to help users find everything on their list without walking back and forth.",
+            "Built a system that pulls item locations from a MongoDB database and uses Redux to keep track of the shopping timer, item checkboxes, and the total cost of the cart as the user moves through the store.",
+            "Applied Dijkstra and A* algorithms to a map of the store aisles (a graph) to calculate the shortest walking distance between the items the user selected."
+          ],
+          images: ["img/quickartlogo.png", "img/quickart/qk1.png", "img/quickart/qk2.png"],
+        },
+        {
+          title: "Fruit Rain",
+          github: "https://github.com/ChloeVed/FruitRain-Folder",
+          description: "Stack used: Java and Processing",
+
+          bullets: [
+            "Developed Fruit Rain, a Java-based interactive quiz game built with the Processing framework, featuring custom Makey Makey hardware integration that maps physical fruits to keyboard inputs.",
+            "Designed a custom CSV parser utilizing Java's Scanner class to dynamically load trivia questions and answer choices, enabling seamless content updates without altering the core codebase.",
+            "Applied Object-oriented programming (OOP) principles to structure game states, track player progression (streaks and health points), and render the frame by frame movement of falling fruit sprites.",
+          ],
+
+          images: [
+            "img/fruitrainmenu.png",
+            "img/fruitrain2.png",
+            "img/fruitrain3.png",
+          ],
+        },
+      ];
+
+      // ── Modal Logic ───────────────────────────────────────────────────────────
+      const modal = document.getElementById("project-modal");
+      const modalTitle = document.getElementById("modal-title");
+      const modalDesc = document.getElementById("modal-desc");
+      const galleryImg = document.querySelector(".gallery-img");
+      const pagination = document.getElementById("gallery-pagination");
+      const prevBtn = document.getElementById("gallery-prev");
+      const nextBtn = document.getElementById("gallery-next");
+      const closeBtn = document.querySelector(".modal-close");
+
+      let currentImages = [];
+      let currentIndex = 0;
+
+      function buildPagination(total, active) {
+        pagination.innerHTML = "";
+        for (let i = 0; i < total; i++) {
+          const dot = document.createElement("button");
+          dot.className = "gallery-dot" + (i === active ? " active" : "");
+          dot.setAttribute("aria-label", "Go to image " + (i + 1));
+          dot.addEventListener("click", () => goTo(i));
+          pagination.appendChild(dot);
+        }
+      }
+
+      function goTo(index) {
+        currentIndex = (index + currentImages.length) % currentImages.length;
+        galleryImg.src = currentImages[currentIndex];
+        buildPagination(currentImages.length, currentIndex);
+        const single = currentImages.length === 1;
+        prevBtn.style.visibility = single ? "hidden" : "visible";
+        nextBtn.style.visibility = single ? "hidden" : "visible";
+      }
+
+      function openModal(i) {
+        const p = projects[i];
+        modalTitle.textContent = p.title;
+        modalDesc.innerHTML = "";
+        if (p.description) {
+          const para = document.createElement("p");
+          para.textContent = p.description;
+          para.style.marginTop = "0";
+          modalDesc.appendChild(para);
+        }
+        if (p.bullets && p.bullets.length) {
+          const ul = document.createElement("ul");
+          ul.style.paddingLeft = "1.2em";
+          ul.style.margin = "8px 0 0 0";
+          p.bullets.forEach((text) => {
+            const li = document.createElement("li");
+            li.textContent = text;
+            li.style.marginBottom = "6px";
+            ul.appendChild(li);
+          });
+          modalDesc.appendChild(ul);
+        }
+
+        const subtitle = document.getElementById("modal-subtitle");
+        if (p.github && p.github !== "#") {
+          subtitle.innerHTML = `
+      <i class="fa-brands fa-square-github" aria-hidden="true" style="color: #afb5aa; font-size: 18px;"></i>
+      <a href="${p.github}" target="_blank" rel="noopener">View on GitHub</a>
+    `;
+        } else {
+          subtitle.innerHTML = "";
+        }
+
+        currentImages = p.images;
+        goTo(0);
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+        closeBtn.focus();
+      }
+
+      function closeModal() {
+        modal.hidden = true;
+        document.body.style.overflow = "";
+      }
+
+      document.querySelectorAll(".project-tile").forEach((tile, i) => {
+        tile.addEventListener("click", (e) => {
+          e.preventDefault();
+          openModal(i);
+        });
+      });
+
+      prevBtn.addEventListener("click", () => goTo(currentIndex - 1));
+      nextBtn.addEventListener("click", () => goTo(currentIndex + 1));
+      closeBtn.addEventListener("click", closeModal);
+
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !modal.hidden) closeModal();
+      });
+
+      // ── Logo shake on hover ───────────────────────────────────────────────────
+      const logo = document.querySelector("header img.logo");
+
+      logo.addEventListener("mouseenter", () => {
+        if (
+          logo.classList.contains("shaking") ||
+          logo.classList.contains("scale-up") ||
+          logo.classList.contains("scale-down")
+        )
+          return;
+
+        logo.classList.add("scale-up");
+
+        setTimeout(() => {
+          logo.classList.remove("scale-up");
+          logo.classList.add("shaking");
+
+          setTimeout(() => {
+            logo.classList.remove("shaking");
+
+            void logo.offsetWidth;
+
+            logo.classList.add("scale-down");
+
+            setTimeout(() => {
+              logo.classList.remove("scale-down");
+            }, 150);
+          }, 800);
+        }, 100);
+      });
+    </script>
   </body>
 </html>
