@@ -706,3 +706,23 @@ footer {
   }
 }
 
+@media (max-width: 768px) {
+  .resume-viewer {
+    display: none;
+  }
+}
+
+.resume-mobile-note {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .resume-mobile-note {
+    display: block;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 12px;
+  }
+}
+
+
