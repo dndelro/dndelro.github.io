@@ -706,7 +706,7 @@ footer {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .resume-viewer {
     display: none;
   }
@@ -716,7 +716,7 @@ footer {
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .resume-mobile-note {
     display: block;
     font-size: 16px;
